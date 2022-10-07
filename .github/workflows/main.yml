@@ -27,3 +27,9 @@ jobs:
       with:
         node-version: 16
     - run: yarn --immutable
+    - name: Run a one-line script
+      run: tar -czf deploy.tar.gz *
+    - uses: actions/upload-artifact@v3
+      with:
+        name: deploy
+        path: ./deploy.tar.gz
